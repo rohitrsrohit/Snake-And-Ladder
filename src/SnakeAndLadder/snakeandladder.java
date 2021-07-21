@@ -1,7 +1,7 @@
 package SnakeAndLadder;
 
 public class snakeandladder {
-	 public static final int NO_PLAY = 0;
+	 	public static final int NO_PLAY = 0;
 	    public static final int LADDER = 1;
 	    public static final int SNAKE = 2;
 
@@ -12,7 +12,7 @@ public class snakeandladder {
 	        int newPosition = 0;
 	        int WinPosition = 100;
 
-	        while (Position <= WinPosition) {
+	        while (Position < WinPosition) {
 	            int DieRolled = (int) (Math.random() * 6) + 1;
 	            int checkOption = (int) (Math.random() * 3);
 
@@ -24,11 +24,14 @@ public class snakeandladder {
 	                    newPosition = DieRolled;
 	                    break;
 	                case SNAKE:
-	                    newPosition = -DieRolled;
+	                    newPosition = DieRolled;
 	            }
 	            Position = Position + newPosition;
 	            if (Position < 0) {
 	                Position = 0;
+	            }
+	            if (Position>100){
+	                Position=newPosition;
 	            }
 	            System.out.println("You are now at " + Position + "th" + " position");
 	        }
